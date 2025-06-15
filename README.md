@@ -66,7 +66,7 @@ Research paper discussing advancements in diffusion models (2023-2024)
 ## 📫 Let's Connect
 - 📧 Email: [meeranprofessional23@gmail.com](mailto:meeranprofessional23@gmail.com)
 - 💼 LinkedIn: [LinkedIn - Meeran](www.linkedin.com/in/meeran23)
-- 🐙 GitHub: [GitHub-Meeran]([https://github.com/Meeran](https://github.com/MEERAN2314))
+- 🐙 GitHub: [GitHub-Meeran](https://github.com/MEERAN2314)
 
 ## 🏆 Certifications
 - Full Stack Web Development (Udemy)
