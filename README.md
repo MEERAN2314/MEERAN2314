@@ -1,75 +1,66 @@
-# 👋 Hello, I'm Meeran Ashfaaq
+# 𝗛𝗲𝘆 𝗜'𝗺 𝗠𝗲𝗲𝗿𝗮𝗻 𝗔𝘀𝗵𝗳𝗮𝗮𝗾 ⚡
 
-A passionate Computer Science Engineering student with expertise in web development, AI technologies, and leadership. Currently pursuing my B.Tech at B.S. Abdur Rahman Crescent Institution of Science and Technology.
+<div align="center">
+  
+[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=00F72D&width=435&lines=Full+Stack+Developer;AI+Enthusiast;Tech+Evangelist;Open+Source+Contributor)](https://git.io/typing-svg)
 
-## 🚀 About Me
+</div>
 
-- 💻 **Tech Enthusiast** specializing in Full Stack Development
-- 🎓 3rd Year CSE Student (2022-2026)
-- 🏆 Chairman of CSE Coding Club
-- 📝 Published Researcher in AI-driven visual generation
-- ✨ Freelance Web Developer & Designer
+## 𝗠𝘆 𝗧𝗲𝗰𝗵 𝗦𝘁𝗮𝗰𝗸 𝗔𝗿𝘀𝗲𝗻𝗮𝗹 🛠️
 
-## 🔧 Technologies & Tools
-
-### Programming Languages
-![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+### 𝗟𝗮𝗻𝗴𝘂𝗮𝗴𝗲𝘀
+![Java](https://img.shields.io/badge/Java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![JavaScript](https://img.shields.io/badge/JavaScript-%23F7DF1E.svg?style=for-the-badge&logo=javascript&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 
-### Web Development
+### 𝗙𝗿𝗼𝗻𝘁𝗲𝗻𝗱
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Tailwind](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+
+### 𝗕𝗮𝗰𝗸𝗲𝗻𝗱
 ![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
 ![Express.js](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge)
 ![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-F2F4F9?style=for-the-badge&logo=spring-boot)
 
-### Databases
-![SQL](https://img.shields.io/badge/SQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
-![NoSQL](https://img.shields.io/badge/NoSQL-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
+### 𝗗𝗮𝘁𝗮𝗯𝗮𝘀𝗲𝘀
+![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)
+![Firebase](https://img.shields.io/badge/Firebase-039BE5?style=for-the-badge&logo=Firebase&logoColor=white)
 
-### Cloud & DevOps
-![AWS](https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazonaws&logoColor=white)
-![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
-![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)
+### 𝗖𝗹𝗼𝘂𝗱 & 𝗗𝗲𝘃𝗢𝗽𝘀
+![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white)
+![Git](https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white)
 
-## 💼 Experience
+---
 
-### Internships
-- **BrightGeeks Technologies** (Feb 2024 - May 2024) - Developed a grocery delivery app using Java/Spring Boot
-- **Unified Mentor** (June 2024 - July 2024) - Web Development Intern
-- **Codetech IT Solutions** (July 2024 - Aug 2024) - Java Programming Intern
+## 𝗚𝗶𝘁𝗛𝘂𝗯 𝗦𝘁𝗮𝘁𝘀 📊
 
-### Leadership
-- **Chairman**, CSE Coding Club (June 2023 - Present)
-- **Designer Head & PRO**, Crescent Readers Club (2023-2025)
+<div align="center">
+  
+[![GitHub Streak](https://streak-stats.demolab.com?user=MEERAN2314&theme=dark&hide_border=true&date_format=j%20M%5B%20Y%5D)](https://git.io/streak-stats)
 
-## 🛠️ Projects
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=MEERAN2314&layout=compact&theme=vision-friendly-dark)](https://github.com/anuraghazra/github-readme-stats)
 
-### [CresColNet](https://github.com/Meeran/CresColNet)
-A social media platform for students and faculty to share events and news  
-**Tech**: React.js, Tailwind CSS, Appwrite
+</div>
 
-### [Real-time Coding](https://github.com/Meeran/RealTimeCoding)
-Web application for real-time code sharing and collaboration  
-**Tech**: React.js, Socket.IO, Node.js
+---
 
-### [Questify](https://github.com/Meeran/Questify)
-Client-focused website emphasizing design and functionality  
-**Tech**: HTML, CSS, JavaScript, Python Flask
+## 𝗟𝗲𝘁'𝘀 𝗖𝗼𝗻𝗻𝗲𝗰𝘁 🤝
 
-## 📚 Research & Publications
-**Stable Diffusion and Emerging Adaptors: A Study on AI-Driven Visual Generation**  
-Research paper discussing advancements in diffusion models (2023-2024)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/meeran)
+[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:meeranprofessional23@gmail.com)
+[![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/yourhandle)
+[![Portfolio](https://img.shields.io/badge/Portfolio-%23000000.svg?style=for-the-badge&logo=firefox&logoColor=#FF7139)](#)
 
-## 📫 Let's Connect
-- 📧 Email: [meeranprofessional23@gmail.com](mailto:meeranprofessional23@gmail.com)
-- 💼 LinkedIn: [LinkedIn - Meeran](www.linkedin.com/in/meeran23)
-- 🐙 GitHub: [GitHub-Meeran](https://github.com/MEERAN2314)
+---
 
-## 🏆 Certifications
-- Full Stack Web Development (Udemy)
-- AWS with JavaScript and Node.js (Udemy)
-- Serverless Framework Bootcamp (Udemy)
-- Java Programming & Spring Boot (BrightGeeks Technologies)
+<div align="center">
+  
+![Visitor Count](https://komarev.com/ghpvc/?username=MEERAN2314&color=blueviolet&style=flat)
+
+</div>
