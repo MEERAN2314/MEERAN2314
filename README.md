@@ -73,11 +73,9 @@
 
 ---
 
-## 📝 Latest Blog Posts
+## 📝 My Blog Page
 <!-- You can add actual blog links here when available -->
-- [Getting Started with React Hooks](https://example.com)
-- [Python Tips for Beginners](https://example.com)
-- [My AI Learning Journey](https://example.com)
+- [Substack](https://meeran3.substack.com/)
 
 ---
 
