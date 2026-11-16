@@ -1,0 +1,131 @@
+{
+  "user": "MEERAN2314",
+  "name": "Meeran Ashfaaq",
+  "role": "GenAI Engineer · Mobile App Developer",
+  "tagline": "I build React Native mobile apps for Android and iOS, AI-based website software solutions, and websites.",
+  "chips": [
+    "Chennai, India",
+    "FuzeApps",
+    "React Native",
+    "AI web solutions"
+  ],
+  "portrait": null,
+  "portrait_palette": "brand",
+  "brand": "#A66BFF",
+  "accent": "#5B6CFF",
+  "colors": {
+    "card": "#0d1117",
+    "panel": "#161b22",
+    "border": "#30363d",
+    "text": "#e6edf3",
+    "muted": "#8b949e"
+  },
+  "font": {
+    "regular": "assets/fonts/FiraCode-400.woff",
+    "bold": "assets/fonts/FiraCode-700.woff"
+  },
+  "links": [
+    {
+      "file": "tile-blog",
+      "icon": "pen",
+      "label": "WRITING",
+      "title": "Substack",
+      "sub": "meeran3.substack.com",
+      "url": "https://meeran3.substack.com/"
+    },
+    {
+      "file": "tile-linkedin",
+      "icon": "in",
+      "label": "NETWORK",
+      "title": "LinkedIn",
+      "sub": "in/meeran23",
+      "url": "https://www.linkedin.com/in/meeran23"
+    },
+    {
+      "file": "tile-email",
+      "icon": "mail",
+      "label": "CONTACT",
+      "title": "Say hello",
+      "sub": "meeran231422@gmail.com",
+      "url": "mailto:meeran231422@gmail.com"
+    }
+  ],
+  "stack": [
+    {
+      "label": "Mobile",
+      "items": [
+        "React Native",
+        "Expo",
+        "Android",
+        "iOS",
+        "Kotlin",
+        "Swift"
+      ]
+    },
+    {
+      "label": "Web",
+      "items": [
+        "React",
+        "Next.js",
+        "JavaScript",
+        "TypeScript",
+        "Tailwind CSS",
+        "Jinja2",
+        "Figma"
+      ]
+    },
+    {
+      "label": "AI & LLMs",
+      "items": [
+        "OpenAI",
+        "Gemini",
+        "Claude",
+        "LangChain",
+        "LangGraph",
+        "Langfuse"
+      ]
+    },
+    {
+      "label": "Data & tools",
+      "items": [
+        "Python",
+        "Pandas",
+        "NumPy",
+        "n8n"
+      ]
+    },
+    {
+      "label": "Backend",
+      "items": [
+        "FastAPI",
+        "Node.js",
+        "Express",
+        "Supabase",
+        "Firebase"
+      ]
+    },
+    {
+      "label": "Cloud & hosting",
+      "items": [
+        "AWS",
+        "Vercel",
+        "Netlify",
+        "Hostinger"
+      ]
+    }
+  ],
+  "featured": [],
+  "all_branch": {
+    "enabled": true,
+    "extra_repos": [
+      "kactlabs/toksum",
+      "kactlabs/pypinindia"
+    ],
+    "exclude_repos": [],
+    "include_forks": false,
+    "author_emails": [],
+    "max_requests": 3000
+  },
+  "data": "data/contributions.json",
+  "out": "cards"
+}
