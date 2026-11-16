@@ -17,7 +17,6 @@
 </div>
 
 <details>
-<summary>How these cards are built</summary>
 
 <br>
 
