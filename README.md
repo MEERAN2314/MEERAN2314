@@ -16,8 +16,6 @@
 
 </div>
 
-<details>
-
 <br>
 
 Every card is an animated SVG rendered by one script, `scripts/render_cards.py`, and shown through a plain `<img>` tag. The SVGs use only an inline CSS `<style>` block, SMIL `<animate>` elements and Fira Code subset with `pyftsubset` and embedded as base64 WOFF, so nothing is fetched from outside GitHub. Every animation is switched off under `prefers-reduced-motion`.
