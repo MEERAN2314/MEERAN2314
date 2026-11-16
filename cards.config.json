@@ -13,6 +13,7 @@
   "portrait_palette": "brand",
   "brand": "#A66BFF",
   "accent": "#5B6CFF",
+  "combined_color": "#E879F9",
   "colors": {
     "card": "#0d1117",
     "panel": "#161b22",

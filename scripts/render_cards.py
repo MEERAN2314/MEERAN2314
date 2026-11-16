@@ -42,6 +42,7 @@ T = {"hero": 0.0, "tiles": 2.3, "stack": 2.9, "activity": 3.7, "repos": 5.0, "gr
 if not CFG.get("featured"):          # no repo cards: the graph follows the activity card
     T["graph"] = T["repos"]
 T["graph2"] = T["graph"] + 1.3
+T["graph3"] = T["graph2"] + 1.3
 
 
 # ---------------------------------------------------------------- colour utils
@@ -215,12 +216,18 @@ def load_data():
     per_month = [sum(v for k, v in days.items() if (k.year, k.month) == ym) for ym in months]
 
     ab = d.get("all_branch")
+    extra = {}
     if ab:
-        ab = {"days": {dt.date.fromisoformat(x["date"]): x["count"] for x in ab["days"]
-                       if dt.date.fromisoformat(x["date"]) > last - dt.timedelta(days=365)},
-              "total": ab["total"], "branches": ab["branches"], "repos": ab["repos"]}
+        inwin = lambda day: day > last - dt.timedelta(days=365)
+        ab_days = {dt.date.fromisoformat(x["date"]): x["count"] for x in ab["days"] if inwin(dt.date.fromisoformat(x["date"]))}
+        if "extra_days" in ab:                     # commits outside default branches, the ones GitHub ignores
+            extra = {dt.date.fromisoformat(x["date"]): x["count"] for x in ab["extra_days"]
+                     if x["count"] and inwin(dt.date.fromisoformat(x["date"]))}
+        else:                                      # older data file: best guess until the next refresh
+            extra = {k: v - days.get(k, 0) for k, v in ab_days.items() if v > days.get(k, 0)}
+        ab = {"days": ab_days, "total": ab["total"], "branches": ab["branches"], "repos": ab["repos"]}
     return {
-        "all_branch": ab, "days": days, "last": last, "total": sum(days.values()),
+        "all_branch": ab, "extra": extra, "days": days, "last": last, "total": sum(days.values()),
         "active": sum(1 for v in days.values() if v > 0), "span": len(days),
         "streak": cur, "longest": longest,
         "busiest": max(days.items(), key=lambda kv: (kv[1], kv[0])),
@@ -482,7 +489,13 @@ def repo_card(slug_idx, full, meta):
 def graph(D, kind="github"):
     """Contribution heatmap. kind='github' is GitHub's own calendar, 'all' counts commits on every branch."""
     ab = D["all_branch"]
-    if kind == "github":
+    if kind == "combined":
+        name, title, tone, d = "contributions-combined", "Combined activity", CFG.get("combined_color", "#E879F9"), T["graph3"]
+        days = {k: D["days"].get(k, 0) + D["extra"].get(k, 0) for k in set(D["days"]) | set(D["extra"])}
+        total, extra_total = sum(days.values()), sum(D["extra"].values())
+        sub = "GitHub's count plus the commits it ignores, because they sit on branches that are not the default"
+        right = [(f"{total:,}", tone, 700), (f" in total · {D['total']:,} from GitHub + {extra_total:,} extra", C["muted"], 400)]
+    elif kind == "github":
         name, title, tone, d = "contributions", "Contribution graph", BRAND, T["graph"]
         days, total = D["days"], D["total"]
         sub = "As GitHub counts it: default-branch commits, pull requests, issues and reviews"
@@ -559,6 +572,7 @@ def main():
         cards.append(repo_card(i, full, by_name.get(full.lower(), {})))
     cards.append(graph(D, "github"))
     cards.append(graph(D, "all"))
+    cards.append(graph(D, "combined"))
 
     for card in cards:
         (out / f"{card.name}.svg").write_text(card.svg(), encoding="utf-8")

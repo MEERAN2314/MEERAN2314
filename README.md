@@ -14,4 +14,6 @@
 
 <img src="cards/contributions-all.svg" alt="Commits on all branches for the last year" width="100%">
 
+<img src="cards/contributions-combined.svg" alt="GitHub contributions plus commits on non-default branches, combined" width="100%">
+
 </div>

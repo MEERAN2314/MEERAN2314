@@ -53,8 +53,9 @@ def rest(path, token, params=None):
         except urllib.error.HTTPError as e:
             if e.code == 409:                      # empty repository
                 return []
-            if e.code in (429, 502, 503) and attempt < 2:
-                time.sleep(2 ** (attempt + 1))
+            limited = e.code == 403 and (e.headers.get("X-RateLimit-Remaining") == "0" or e.headers.get("Retry-After"))
+            if (e.code in (429, 502, 503) or limited) and attempt < 2:   # rate limit or a GitHub hiccup: wait and retry
+                time.sleep(min(int(e.headers.get("Retry-After") or 0) or 2 ** (attempt + 1) * 2, 60))
                 continue
             raise
 
@@ -70,38 +71,49 @@ def paged(path, token, params=None, max_pages=30):
 
 
 def list_repos(token, ab):
-    """Repos to scan. A personal access token (PROFILE_TOKEN) also sees private and org repos."""
+    """Repos to scan, as {full_name: default_branch or None}. A personal access token (PROFILE_TOKEN)
+    also sees private and org repos."""
     user = CFG["user"]
     try:
         repos = paged("/user/repos", token, {"affiliation": "owner,collaborator,organization_member"})
-        repos = [r for r in repos if r["owner"]["login"] == user or r.get("permissions", {}).get("push")
-                 or r["owner"]["type"] == "Organization"]
         scope = "all repos your token can see"
     except urllib.error.HTTPError:                 # the default GITHUB_TOKEN cannot call /user/repos
         repos = paged(f"/users/{user}/repos", token, {"type": "owner"})
         scope = "public repos only (add a PROFILE_TOKEN secret for private and org repos)"
-    names = {r["full_name"] for r in repos if (ab.get("include_forks") or not r["fork"]) and not r["archived"]}
-    names |= set(ab.get("extra_repos", []))
-    names -= set(ab.get("exclude_repos", []))
-    print(f"all-branch: scanning {len(names)} repos ({scope})")
-    return sorted(names)
+    found = {r["full_name"]: r.get("default_branch") for r in repos
+             if (ab.get("include_forks") or not r["fork"]) and not r["archived"]}
+    for extra in ab.get("extra_repos", []):
+        found.setdefault(extra, None)
+    for gone in ab.get("exclude_repos", []):
+        found.pop(gone, None)
+    print(f"all-branch: scanning {len(found)} repos ({scope})")
+    return found
 
 
 def collect_all_branch(token, start, today):
-    """Your commits on every branch of your repos, one per SHA, counted per UTC day."""
+    """Your commits on every branch of your repos, one per SHA, counted per UTC day.
+
+    Also returns "extra_days": the commits that are NOT on a repo's default branch, i.e. the ones
+    GitHub's own graph ignores. The combined card adds those to GitHub's count."""
     ab = CFG.get("all_branch", {})
     user, budget = CFG["user"], ab.get("max_requests", 3000)
     authors = [user] + list(ab.get("author_emails", []))   # extra emails catch commits not linked to the account
-    seen, days, branches_n, used_repos = {}, {}, 0, []
-    calls = 0
-    for repo in list_repos(token, ab):
+    seen, default_shas = {}, set()
+    branches_n, used_repos, calls = 0, [], 0
+    for repo, default in list_repos(token, ab).items():
+        if default is None:
+            try:
+                default = rest(f"/repos/{repo}", token).get("default_branch")
+            except urllib.error.HTTPError:
+                default = None
         try:
             branches = [b["name"] for b in paged(f"/repos/{repo}/branches", token)]
         except urllib.error.HTTPError as e:
             print(f"warning: {repo}: cannot list branches ({e.code}), skipped", file=sys.stderr)
             continue
-        before = len(seen)
+        repo_shas = set()
         for br in branches:
+            found_here = False
             for author in authors:
                 if calls >= budget:
                     print("warning: request budget reached, results are partial", file=sys.stderr)
@@ -117,15 +129,28 @@ def collect_all_branch(token, start, today):
                     when = c["commit"]["author"]["date"][:10]
                     if start.isoformat() <= when <= today.isoformat():
                         seen.setdefault(c["sha"], when)
-        branches_n += len(branches)
-        if len(seen) > before:
+                        repo_shas.add(c["sha"])
+                        found_here = True
+                        if br == default:
+                            default_shas.add(c["sha"])
+            branches_n += found_here               # only branches that hold commits of yours
+        if default is None:                        # unknown default branch: do not guess, count nothing as extra
+            default_shas |= repo_shas
+        if repo_shas:
             used_repos.append(repo)
-    for when in seen.values():
-        days[when] = days.get(when, 0) + 1
-    out_days = [{"date": (start + dt.timedelta(days=i)).isoformat(),
-                 "count": days.get((start + dt.timedelta(days=i)).isoformat(), 0)} for i in range(365)]
-    print(f"all-branch: {len(seen)} commits, {branches_n} branches, {calls} API calls")
-    return {"total": len(seen), "branches": branches_n, "repos": used_repos, "days": out_days}
+
+    def per_day(shas):
+        counts = {}
+        for sha in shas:
+            counts[seen[sha]] = counts.get(seen[sha], 0) + 1
+        return [{"date": (start + dt.timedelta(days=i)).isoformat(),
+                 "count": counts.get((start + dt.timedelta(days=i)).isoformat(), 0)} for i in range(365)]
+
+    extra = [sha for sha in seen if sha not in default_shas]
+    print(f"all-branch: {len(seen)} commits ({len(extra)} outside default branches), "
+          f"{branches_n} branches, {len(used_repos)} repos, {calls} API calls")
+    return {"total": len(seen), "extra_total": len(extra), "branches": branches_n, "repos": used_repos,
+            "days": per_day(seen), "extra_days": per_day(extra)}
 
 
 def fetch(token):
@@ -194,11 +219,12 @@ def sample():
         desc, lang, col = meta.get(f, ("", "JavaScript", "#f1e05a"))
         repos.append({"nameWithOwner": f, "description": desc, "url": f"https://github.com/{f}",
                       "stars": 0, "forks": 0, "language": lang, "color": col})
-    extra = random.Random(7)
-    ab_days = [{"date": d["date"], "count": d["count"] + (extra.randint(1, 6) if extra.random() < 0.4 else 0)}
-               for d in days]
-    all_branch = {"total": sum(d["count"] for d in ab_days), "branches": 14,
-                  "repos": ["MEERAN2314/EduSynapse.AI", "kactlabs/toksum", "kactlabs/pypinindia"], "days": ab_days}
+    rnd = random.Random(7)
+    extra_days = [{"date": d["date"], "count": rnd.randint(1, 6) if rnd.random() < 0.4 else 0} for d in days]
+    ab_days = [{"date": d["date"], "count": d["count"] + e["count"]} for d, e in zip(days, extra_days)]
+    all_branch = {"total": sum(d["count"] for d in ab_days), "extra_total": sum(e["count"] for e in extra_days),
+                  "branches": 14, "repos": ["MEERAN2314/EduSynapse.AI", "kactlabs/toksum", "kactlabs/pypinindia"],
+                  "days": ab_days, "extra_days": extra_days}
     return {"user": CFG["user"], "sample": True, "total": sum(d["count"] for d in days),
             "days": days, "repos": repos, "all_branch": all_branch}
 
