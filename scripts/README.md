@@ -31,6 +31,8 @@ Settings live under `all_branch` in `cards.config.json`.
 
 The third graph, "Combined activity", is GitHub's count for each day plus the commits that GitHub ignores because they are not on a default branch. Commits that are on both a feature branch and the default branch are only counted once. One caveat: if you merge pull requests with squash or rebase, the original branch commits are still on the branch and are counted as extra on top of the squashed commit, so busy days can read slightly high.
 
+The "Contributions per month" card, with its streak, active days and busiest day, uses the same combined numbers. Only the first graph shows GitHub's own count on its own.
+
 If something goes wrong the refresh does not fail: a repo or branch that cannot be read is skipped with a warning, a
 failed scan keeps the previous result, and a graph with no data yet shows an empty grid.
 

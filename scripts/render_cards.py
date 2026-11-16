@@ -197,24 +197,6 @@ def load_data():
     days = {k: v for k, v in days.items() if k > last - dt.timedelta(days=365)}
     one = dt.timedelta(days=1)
 
-    cur, i = 0, last
-    if days.get(i, 0) == 0:          # today may not have contributions yet, like GitHub
-        i -= one
-    while days.get(i, 0) > 0:
-        cur, i = cur + 1, i - one
-    longest = run = 0
-    for k in sorted(days):
-        run = run + 1 if days[k] > 0 else 0
-        longest = max(longest, run)
-
-    months = []                      # 12 calendar months ending with the latest one
-    y, m = last.year, last.month
-    for _ in range(12):
-        months.append((y, m))
-        y, m = (y, m - 1) if m > 1 else (y - 1, 12)
-    months.reverse()
-    per_month = [sum(v for k, v in days.items() if (k.year, k.month) == ym) for ym in months]
-
     ab = d.get("all_branch")
     extra = {}
     if ab:
@@ -226,11 +208,34 @@ def load_data():
         else:                                      # older data file: best guess until the next refresh
             extra = {k: v - days.get(k, 0) for k, v in ab_days.items() if v > days.get(k, 0)}
         ab = {"days": ab_days, "total": ab["total"], "branches": ab["branches"], "repos": ab["repos"]}
+
+    # Combined = GitHub's count + commits it ignores. The monthly chart and its stats use this.
+    comb = {k: days.get(k, 0) + extra.get(k, 0) for k in set(days) | set(extra)}
+
+    cur, i = 0, last
+    if comb.get(i, 0) == 0:          # today may not have contributions yet, like GitHub
+        i -= one
+    while comb.get(i, 0) > 0:
+        cur, i = cur + 1, i - one
+    longest = run = 0
+    for k in sorted(comb):
+        run = run + 1 if comb[k] > 0 else 0
+        longest = max(longest, run)
+
+    months = []                      # 12 calendar months ending with the latest one
+    y, m = last.year, last.month
+    for _ in range(12):
+        months.append((y, m))
+        y, m = (y, m - 1) if m > 1 else (y - 1, 12)
+    months.reverse()
+    per_month = [sum(v for k, v in comb.items() if (k.year, k.month) == ym) for ym in months]
+
     return {
         "all_branch": ab, "extra": extra, "days": days, "last": last, "total": sum(days.values()),
-        "active": sum(1 for v in days.values() if v > 0), "span": len(days),
+        "comb": comb, "comb_total": sum(comb.values()),
+        "active": sum(1 for v in comb.values() if v > 0), "span": len(days),
         "streak": cur, "longest": longest,
-        "busiest": max(days.items(), key=lambda kv: (kv[1], kv[0])),
+        "busiest": max(comb.items(), key=lambda kv: (kv[1], kv[0])),
         "months": months, "per_month": per_month, "repos": d.get("repos", []),
     }
 
@@ -393,7 +398,7 @@ def tile(link, idx):
 def activity(D):
     H = 340
     c = Card("activity", W, H, "Contributions per month, streak, active days and busiest day",
-             f"{D['total']} contributions in the last year; current streak {D['streak']} days")
+             f"{D['comb_total']} combined contributions in the last year; current streak {D['streak']} days")
     c.defs.append(f'<linearGradient id="bar" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{BRAND}"/>'
                   f'<stop offset="1" stop-color="{BRAND}" stop-opacity=".28"/></linearGradient>')
     c.frame()
@@ -401,7 +406,7 @@ def activity(D):
     ms, me = D["months"][0], D["months"][-1]
     c.add(f'<g{anim("rise", d)}>')
     c.text(32, 42, "Contributions per month", 17, 700, C["text"])
-    c.text(32, 62, f"{dt.date(*ms, 1):%b %Y} to {dt.date(*me, 1):%b %Y} · {D['total']:,} in total", 12, 400, C["muted"])
+    c.text(32, 62, f"{dt.date(*ms, 1):%b %Y} to {dt.date(*me, 1):%b %Y} · {D['comb_total']:,} in total · GitHub plus commits on other branches", 12, 400, C["muted"])
     c.add("</g>")
 
     bdate, bd = D["busiest"]
@@ -491,8 +496,7 @@ def graph(D, kind="github"):
     ab = D["all_branch"]
     if kind == "combined":
         name, title, tone, d = "contributions-combined", "Combined activity", CFG.get("combined_color", "#E879F9"), T["graph3"]
-        days = {k: D["days"].get(k, 0) + D["extra"].get(k, 0) for k in set(D["days"]) | set(D["extra"])}
-        total, extra_total = sum(days.values()), sum(D["extra"].values())
+        days, total, extra_total = D["comb"], D["comb_total"], sum(D["extra"].values())
         sub = "GitHub's count plus the commits it ignores, because they sit on branches that are not the default"
         right = [(f"{total:,}", tone, 700), (f" in total · {D['total']:,} from GitHub + {extra_total:,} extra", C["muted"], 400)]
     elif kind == "github":
