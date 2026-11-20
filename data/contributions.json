@@ -1,11 +1,7 @@
 {
  "user": "MEERAN2314",
- "total": 1344,
+ "total": 1339,
  "days": [
-  {
-   "date": "2025-11-20",
-   "count": 8
-  },
   {
    "date": "2025-11-21",
    "count": 4
@@ -1460,14 +1456,18 @@
   },
   {
    "date": "2026-11-19",
+   "count": 3
+  },
+  {
+   "date": "2026-11-20",
    "count": 0
   }
  ],
  "repos": [],
  "all_branch": {
-  "total": 1205,
-  "extra_total": 279,
-  "branches": 256,
+  "total": 1207,
+  "extra_total": 287,
+  "branches": 254,
   "repos": [
    "A1R0NHZ/Pentagon",
    "A1R0NHZ/Shankar",
@@ -1484,7 +1484,6 @@
    "MEERAN2314/aaqib-solutions",
    "MEERAN2314/ai-posture-analysis",
    "MEERAN2314/ai-website-analyzer",
-   "MEERAN2314/birthday-website-2",
    "MEERAN2314/campus-hiring",
    "MEERAN2314/camunda-dynamic-workflow",
    "MEERAN2314/camunda-ide",
@@ -1520,10 +1519,6 @@
    "MEERAN2314/workshop"
   ],
   "days": [
-   {
-    "date": "2025-11-20",
-    "count": 6
-   },
    {
     "date": "2025-11-21",
     "count": 4
@@ -2970,7 +2965,7 @@
    },
    {
     "date": "2026-11-17",
-    "count": 9
+    "count": 6
    },
    {
     "date": "2026-11-18",
@@ -2978,14 +2973,14 @@
    },
    {
     "date": "2026-11-19",
-    "count": 0
+    "count": 3
+   },
+   {
+    "date": "2026-11-20",
+    "count": 8
    }
   ],
   "extra_days": [
-   {
-    "date": "2025-11-20",
-    "count": 0
-   },
    {
     "date": "2025-11-21",
     "count": 0
@@ -4432,7 +4427,7 @@
    },
    {
     "date": "2026-11-17",
-    "count": 9
+    "count": 6
    },
    {
     "date": "2026-11-18",
@@ -4440,7 +4435,11 @@
    },
    {
     "date": "2026-11-19",
-    "count": 0
+    "count": 3
+   },
+   {
+    "date": "2026-11-20",
+    "count": 8
    }
   ]
  }
