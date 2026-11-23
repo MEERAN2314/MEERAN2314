@@ -1,11 +1,7 @@
 {
  "user": "MEERAN2314",
- "total": 1342,
+ "total": 1349,
  "days": [
-  {
-   "date": "2025-11-23",
-   "count": 6
-  },
   {
    "date": "2025-11-24",
    "count": 0
@@ -1460,14 +1456,18 @@
   },
   {
    "date": "2026-11-22",
-   "count": 1
+   "count": 3
+  },
+  {
+   "date": "2026-11-23",
+   "count": 11
   }
  ],
  "repos": [],
  "all_branch": {
-  "total": 1212,
+  "total": 1188,
   "extra_total": 296,
-  "branches": 256,
+  "branches": 250,
   "repos": [
    "A1R0NHZ/Pentagon",
    "A1R0NHZ/Shankar",
@@ -1506,23 +1506,15 @@
    "MEERAN2314/Quote-Verdict",
    "MEERAN2314/school-website",
    "MEERAN2314/scientific-calculatot-reactnative",
-   "MEERAN2314/skyhacks-spacesense",
    "MEERAN2314/sleep-wellness-app",
    "MEERAN2314/socialtab",
    "MEERAN2314/soong-choon-website",
-   "MEERAN2314/tn-police-hackathon",
    "MEERAN2314/unifyt",
    "MEERAN2314/unit-conversion-",
-   "MEERAN2314/voice-to-voice-personalised-chatbot",
-   "MEERAN2314/webdev-class",
-   "MEERAN2314/workout-analyser",
-   "MEERAN2314/workshop"
+   "MEERAN2314/Vision-Website",
+   "MEERAN2314/voice-to-voice-personalised-chatbot"
   ],
   "days": [
-   {
-    "date": "2025-11-23",
-    "count": 6
-   },
    {
     "date": "2025-11-24",
     "count": 5
@@ -1741,11 +1733,11 @@
    },
    {
     "date": "2026-01-17",
-    "count": 1
+    "count": 0
    },
    {
     "date": "2026-01-18",
-    "count": 3
+    "count": 0
    },
    {
     "date": "2026-01-19",
@@ -1769,11 +1761,11 @@
    },
    {
     "date": "2026-01-24",
-    "count": 3
+    "count": 0
    },
    {
     "date": "2026-01-25",
-    "count": 3
+    "count": 0
    },
    {
     "date": "2026-01-26",
@@ -1785,11 +1777,11 @@
    },
    {
     "date": "2026-01-28",
-    "count": 1
+    "count": 0
    },
    {
     "date": "2026-01-29",
-    "count": 7
+    "count": 0
    },
    {
     "date": "2026-01-30",
@@ -2229,7 +2221,7 @@
    },
    {
     "date": "2026-05-19",
-    "count": 4
+    "count": 1
    },
    {
     "date": "2026-05-20",
@@ -2245,7 +2237,7 @@
    },
    {
     "date": "2026-05-23",
-    "count": 2
+    "count": 1
    },
    {
     "date": "2026-05-24",
@@ -2253,7 +2245,7 @@
    },
    {
     "date": "2026-05-25",
-    "count": 6
+    "count": 5
    },
    {
     "date": "2026-05-26",
@@ -2397,15 +2389,15 @@
    },
    {
     "date": "2026-06-30",
-    "count": 3
+    "count": 2
    },
    {
     "date": "2026-07-01",
-    "count": 1
+    "count": 0
    },
    {
     "date": "2026-07-02",
-    "count": 2
+    "count": 1
    },
    {
     "date": "2026-07-03",
@@ -2817,7 +2809,7 @@
    },
    {
     "date": "2026-10-13",
-    "count": 4
+    "count": 0
    },
    {
     "date": "2026-10-14",
@@ -2977,14 +2969,14 @@
    },
    {
     "date": "2026-11-22",
-    "count": 0
+    "count": 11
+   },
+   {
+    "date": "2026-11-23",
+    "count": 1
    }
   ],
   "extra_days": [
-   {
-    "date": "2025-11-23",
-    "count": 0
-   },
    {
     "date": "2025-11-24",
     "count": 2
@@ -3251,7 +3243,7 @@
    },
    {
     "date": "2026-01-29",
-    "count": 1
+    "count": 0
    },
    {
     "date": "2026-01-30",
@@ -4440,6 +4432,10 @@
    {
     "date": "2026-11-22",
     "count": 0
+   },
+   {
+    "date": "2026-11-23",
+    "count": 1
    }
   ]
  }
