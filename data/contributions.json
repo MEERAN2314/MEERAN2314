@@ -1,11 +1,7 @@
 {
  "user": "MEERAN2314",
- "total": 1349,
+ "total": 1359,
  "days": [
-  {
-   "date": "2025-11-24",
-   "count": 0
-  },
   {
    "date": "2025-11-25",
    "count": 5
@@ -1461,13 +1457,17 @@
   {
    "date": "2026-11-23",
    "count": 11
+  },
+  {
+   "date": "2026-11-24",
+   "count": 10
   }
  ],
  "repos": [],
  "all_branch": {
-  "total": 1188,
-  "extra_total": 296,
-  "branches": 250,
+  "total": 1170,
+  "extra_total": 292,
+  "branches": 246,
   "repos": [
    "A1R0NHZ/Pentagon",
    "A1R0NHZ/Shankar",
@@ -1475,6 +1475,7 @@
    "Aakif9616/Camunda-Workflow-Updated",
    "FuzeApps/fuze-ai-lens",
    "FuzeApps/fuze-candy-mobile",
+   "FuzeApps/fuze-hayley-mobile",
    "FuzeApps/fuze-moonmind",
    "FuzeApps/fuze-moonmind-backend",
    "FuzeApps/fuze-qdq-app",
@@ -1509,19 +1510,12 @@
    "MEERAN2314/sleep-wellness-app",
    "MEERAN2314/socialtab",
    "MEERAN2314/soong-choon-website",
-   "MEERAN2314/unifyt",
-   "MEERAN2314/unit-conversion-",
-   "MEERAN2314/Vision-Website",
-   "MEERAN2314/voice-to-voice-personalised-chatbot"
+   "MEERAN2314/unifyt"
   ],
   "days": [
    {
-    "date": "2025-11-24",
-    "count": 5
-   },
-   {
     "date": "2025-11-25",
-    "count": 2
+    "count": 0
    },
    {
     "date": "2025-11-26",
@@ -1653,7 +1647,7 @@
    },
    {
     "date": "2025-12-28",
-    "count": 2
+    "count": 1
    },
    {
     "date": "2025-12-29",
@@ -1773,7 +1767,7 @@
    },
    {
     "date": "2026-01-27",
-    "count": 3
+    "count": 2
    },
    {
     "date": "2026-01-28",
@@ -1961,7 +1955,7 @@
    },
    {
     "date": "2026-03-15",
-    "count": 1
+    "count": 0
    },
    {
     "date": "2026-03-16",
@@ -2969,18 +2963,18 @@
    },
    {
     "date": "2026-11-22",
-    "count": 11
+    "count": 0
    },
    {
     "date": "2026-11-23",
-    "count": 1
+    "count": 2
+   },
+   {
+    "date": "2026-11-24",
+    "count": 2
    }
   ],
   "extra_days": [
-   {
-    "date": "2025-11-24",
-    "count": 2
-   },
    {
     "date": "2025-11-25",
     "count": 0
@@ -3115,7 +3109,7 @@
    },
    {
     "date": "2025-12-28",
-    "count": 1
+    "count": 0
    },
    {
     "date": "2025-12-29",
@@ -3235,7 +3229,7 @@
    },
    {
     "date": "2026-01-27",
-    "count": 1
+    "count": 0
    },
    {
     "date": "2026-01-28",
@@ -4436,6 +4430,10 @@
    {
     "date": "2026-11-23",
     "count": 1
+   },
+   {
+    "date": "2026-11-24",
+    "count": 0
    }
   ]
  }
