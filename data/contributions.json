@@ -1,11 +1,7 @@
 {
  "user": "MEERAN2314",
- "total": 1359,
+ "total": 1355,
  "days": [
-  {
-   "date": "2025-11-25",
-   "count": 5
-  },
   {
    "date": "2025-11-26",
    "count": 0
@@ -1461,13 +1457,17 @@
   {
    "date": "2026-11-24",
    "count": 10
+  },
+  {
+   "date": "2026-11-25",
+   "count": 1
   }
  ],
  "repos": [],
  "all_branch": {
-  "total": 1170,
-  "extra_total": 292,
-  "branches": 246,
+  "total": 1158,
+  "extra_total": 294,
+  "branches": 245,
   "repos": [
    "A1R0NHZ/Pentagon",
    "A1R0NHZ/Shankar",
@@ -1509,14 +1509,9 @@
    "MEERAN2314/scientific-calculatot-reactnative",
    "MEERAN2314/sleep-wellness-app",
    "MEERAN2314/socialtab",
-   "MEERAN2314/soong-choon-website",
-   "MEERAN2314/unifyt"
+   "MEERAN2314/soong-choon-website"
   ],
   "days": [
-   {
-    "date": "2025-11-25",
-    "count": 0
-   },
    {
     "date": "2025-11-26",
     "count": 0
@@ -1627,7 +1622,7 @@
    },
    {
     "date": "2025-12-23",
-    "count": 2
+    "count": 0
    },
    {
     "date": "2025-12-24",
@@ -1635,7 +1630,7 @@
    },
    {
     "date": "2025-12-25",
-    "count": 4
+    "count": 0
    },
    {
     "date": "2025-12-26",
@@ -1643,15 +1638,15 @@
    },
    {
     "date": "2025-12-27",
-    "count": 2
+    "count": 0
    },
    {
     "date": "2025-12-28",
-    "count": 1
+    "count": 0
    },
    {
     "date": "2025-12-29",
-    "count": 4
+    "count": 0
    },
    {
     "date": "2025-12-30",
@@ -1767,7 +1762,7 @@
    },
    {
     "date": "2026-01-27",
-    "count": 2
+    "count": 1
    },
    {
     "date": "2026-01-28",
@@ -2971,14 +2966,14 @@
    },
    {
     "date": "2026-11-24",
-    "count": 2
+    "count": 4
+   },
+   {
+    "date": "2026-11-25",
+    "count": 0
    }
   ],
   "extra_days": [
-   {
-    "date": "2025-11-25",
-    "count": 0
-   },
    {
     "date": "2025-11-26",
     "count": 0
@@ -4433,6 +4428,10 @@
    },
    {
     "date": "2026-11-24",
+    "count": 2
+   },
+   {
+    "date": "2026-11-25",
     "count": 0
    }
   ]
